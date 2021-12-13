@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Автор: {{ data.id }}{% endblock %}
+
+{% block content %}
+    <ul>
+        Зал №{{ data.id }}
+        {% if data.id == 1 %}
+             <img src="{% static 'images/Image1.jpg' %}">
+        {% elif data.id == 2 %}
+             <img src="{% static 'images/Image2.jpg' %}">
+        {% else %}
+             <img src="{% static 'images/Image3.jpg' %}">
+        {% endif %}
+        <table border="1" width="100%" cellpadding="5">
+            <tr>
+                <th> Название</th>
+                <th> Материалы </th>
+                <th> Стиль </th>
+                <th> Год создания </th>
+            </tr>
+            <tr>
+                {% for art in data.arts %}
+                  {% if art.id == data.id %}
+                    <td>{{ art.name }}</td>
+                    <td>{{ art.materials }}</td>
+                      <td> {{ art.style }}</td>
+                    <td>{{ art.year }}</td>
+                  {% endif %}
+               {% endfor %}
+            </tr>
+        </table>
+    </ul>
+{% endblock %}
+
