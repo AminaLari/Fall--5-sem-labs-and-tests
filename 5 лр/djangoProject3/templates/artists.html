@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Список художников{% endblock %}
+
+{% block content %}
+    Today is {{ data.current_date }}
+<ul>
+    {% for artist in data.artists %}
+       {% include 'qw.html' with elem=artist %}
+    {% empty %}
+        <li>Список пуст</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Художник-импрессионист: {{ id }}{% endblock %}
+
+{% block content %}
+    <p>Имя: {{ name }}</p>
+    <p>Страна: {{ country }}</p>
+    <ul>
+     <li><a href="/art/{{ id }}">Работы художника </a></li>
+    </ul>
+{% endblock %}
