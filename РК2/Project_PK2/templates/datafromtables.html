@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %} Файлы и каталоги,в которых они находятся {% endblock %}
+
+{% block content %}
+    {% for f in data %}
+      <div>Название файла:{{f.name}}</div>
+        <div>Размер файла: {{ f.size }}</div>
+          <div>Расширение файла: {{ f.extension }}</div>
+             <div>Каталог: {{ f.id_catalog.name }}</div>
+                <p></p>
+    {% endfor %}
+{% endblock %}
